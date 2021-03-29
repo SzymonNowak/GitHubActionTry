@@ -1,14 +1,14 @@
 name: Node Continuoues Intergration
 on:
   push:
-    branches:
-      - master
+    branches: [master]
 
 jobs:
-  test_pull_request:
+  test_push:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
       - run: npm ci
       - run: npm test
+      - run: npm run e2e
       - run: npm run build
