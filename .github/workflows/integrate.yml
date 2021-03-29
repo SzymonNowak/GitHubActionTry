@@ -1,8 +1,8 @@
 name: Node Continuoues Intergration
 on:
-  push: 
+  push:
     branches:
-    [master]
+      - master
 
 jobs:
   test_pull_request:
