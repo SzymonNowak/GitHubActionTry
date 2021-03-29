@@ -9,11 +9,11 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: CI
-       run: npm ci
+        run: npm ci
       - name: Test
-       run: npm test
+        run: npm test
       - name: 2e2
-      run: npm run e2e
+        run: npm run e2e
       - name: Build
-       run: npm run build
+        run: npm run build
 # idk
