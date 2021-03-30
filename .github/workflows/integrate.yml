@@ -11,7 +11,7 @@ jobs:
       - name: CI
         run: npm ci
       - name: 2e2
-        run: npm run e2e
+        run: npx cypress run
       - name: Build
         run: npm run build
 # idk
