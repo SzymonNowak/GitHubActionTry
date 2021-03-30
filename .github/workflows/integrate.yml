@@ -10,8 +10,6 @@ jobs:
       - uses: actions/checkout@v2
       - name: CI
         run: npm ci
-      - name: Test
-        run: npm test
       - name: 2e2
         run: npm run e2e
       - name: Build
