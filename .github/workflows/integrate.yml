@@ -4,14 +4,10 @@ on:
     branches: test
 
 jobs:
-  test_push:
+  cypress:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - name: CI
-        run: npm ci
       - name: 2e2
-        run: npx cypress run
-      - name: Build
-        run: npm run build
+        run: npx cypress run  --spec cypress/integration/myTests/**/*
 # idk
