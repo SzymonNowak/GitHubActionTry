@@ -3,6 +3,9 @@ version: "3.7"
 services:
   ndm_con:
     image: szymonnethermind/demerzelsolutions_ndm_con:last
+    container_name: ndm-consumer
+    volumes:
+      - ./static-nodes-ndm-local.json:/nethermind/Data/static-nodes-ndm-local.json
     networks:
       - ndm
     environment:
@@ -15,6 +18,8 @@ services:
   ndm_prov:
     image: szymonnethermind/demerzelsolutions_ndm_con:last
     container_name: ndm-provider
+    volumes:
+      - ./static-nodes-ndm-local.json:/nethermind/Data/static-nodes-ndm-local.json
     networks:
       - ndm
     environment:
