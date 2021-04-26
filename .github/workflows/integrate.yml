@@ -9,7 +9,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: Docker Pull Back
-        run: docker pull szymonnethermind/demerzelsolutions_ndm_con
+        run: docker pull szymonnethermind/demerzelsolutions_ndm_con:last
       - name: Docker Pull Front
         run: docker pull szymonnethermind/demerzelsolutions_ndm_front:last
       - name: Docker Run Provider
