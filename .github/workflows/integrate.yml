@@ -12,7 +12,7 @@ jobs:
         run: docker pull nethermind/nethermind
       - uses: actions/checkout@v2
       - name: Docker Run
-        run: docker run -it nethermind
+        run: docker run nethermind
       - name: Cypress
         run: npx cypress run  --spec cypress/integration/myTests/**/*
 # idk
