@@ -12,12 +12,8 @@ jobs:
         run: docker pull szymonnethermind/demerzelsolutions_ndm_con:last
       - name: Docker Pull Front
         run: docker pull szymonnethermind/demerzelsolutions_ndm_front:last
-      - name: Docker Run Provider
-        run: docker run szymonnethermind/demerzelsolutions_ndm_con:last --config ndm_provider_local
-      - name: Docker Run Consumer
-        run: docker run szymonnethermind/demerzelsolutions_ndm_con:last --config ndm_consumer_local
-      - name: Docker Run Front
-        run: docker run szymonnethermind/demerzelsolutions_ndm_front:last --config ndm_consumer_local
+      - name: Run App
+        run: docker-compose up --build
       - name: Cypress
         run: npx cypress run  --spec cypress/integration/myTests/**/*
 # idk
