@@ -14,11 +14,8 @@ jobs:
         run: docker pull szymonnethermind/demerzelsolutions_ndm_front:last
       - name: Run App
         run: |
-          echo "before all"
           docker-compose up
-          echo "after"
-          echo "before cyp"
-          npx cypress run  --spec cypress/integration/myTests/**/*
+          npx cypress run  --spec cypress/integration/myTests/**/* &
       # - name: Cypress
 
 # idk
