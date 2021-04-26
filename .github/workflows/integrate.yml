@@ -9,8 +9,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: Docker Pull
-      - run: docker pull nethermind/nethermind
-      - uses: actions/checkout@v2
+        run: docker pull nethermind/nethermind
       - name: Cypress
-      - run: npx cypress run  --spec cypress/integration/myTests/**/*
+        run: npx cypress run  --spec cypress/integration/myTests/**/*
 # idk
