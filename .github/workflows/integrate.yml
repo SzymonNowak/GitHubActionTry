@@ -8,11 +8,16 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - name: Docker Pull
+      - name: Docker Pull Back
         run: docker pull szymonnethermind/demerzelsolutions_ndm_con
-      - uses: actions/checkout@v2
-      - name: Docker Run
-        run: docker run szymonnethermind/demerzelsolutions_ndm_con
+      - name: Docker Pull Front
+        run: docker pull szymonnethermind/demerzelsolutions_ndm_front:last
+      - name: Docker Run Provider
+        run: docker run szymonnethermind/demerzelsolutions_ndm_con:last --config ndm_provider_local
+      - name: Docker Run Consumer
+        run: docker run szymonnethermind/demerzelsolutions_ndm_con:last --config ndm_consumer_local
+      - name: Docker Run Front
+        run: docker run szymonnethermind/demerzelsolutions_ndm_front:last --config ndm_consumer_local
       - name: Cypress
         run: npx cypress run  --spec cypress/integration/myTests/**/*
 # idk
