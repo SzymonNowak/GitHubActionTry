@@ -9,10 +9,10 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: Docker Pull
-        run: docker pull nethermind/nethermind
+        run: docker pull szymonnethermind/demerzelsolutions_ndm_con
       - uses: actions/checkout@v2
       - name: Docker Run
-        run: docker run nethermind/nethermind
+        run: docker run szymonnethermind/demerzelsolutions_ndm_con
       - name: Cypress
         run: npx cypress run  --spec cypress/integration/myTests/**/*
 # idk
