@@ -8,6 +8,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - name: Cypress
-        run: npx cypress run  --spec cypress/integration/myTests/**/*
+      - name: Docker Pull
+      - run: docker pull nethermind/nethermind
+      #   run: npx cypress run  --spec cypress/integration/myTests/**/*
 # idk
