@@ -13,7 +13,7 @@ jobs:
       - name: Docker Pull Front
         run: docker pull szymonnethermind/demerzelsolutions_ndm_front:last
       - name: Run App
-        run: docker-compose up --build
+        run: docker-compose up
       - name: Cypress
         run: npx cypress run  --spec cypress/integration/myTests/**/*
 # idk
