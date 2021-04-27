@@ -1,0 +1,43 @@
+version: "3.7"
+
+services:
+  ndm_con:
+    image: szymonnethermind/demerzelsolutions_ndm_con:last
+    container_name: ndm-consumer
+    volumes:
+      - ./static-nodes-ndm-local.json:/nethermind/Data/static-nodes-ndm-local.json
+    networks:
+      - ndm
+    environment:
+      - NETHERMIND_JSONRPCCONFIG_HOST="0.0.0.0"
+    ports:
+      - 8545:8545
+      - 30304:30304
+    command: --config ndm_consumer_local
+
+  ndm_prov:
+    image: szymonnethermind/demerzelsolutions_ndm_con:last
+    container_name: ndm-provider
+    volumes:
+      - ./static-nodes-ndm-local.json:/nethermind/Data/static-nodes-ndm-local.json
+    networks:
+      - ndm
+    environment:
+      - NETHERMIND_JSONRPCCONFIG_HOST="0.0.0.0"
+
+    ports:
+      - 30305:30305
+      - 8546:8546
+    command: --config ndm_provider_local
+
+  ndm_front:
+    image: szymonnethermind/demerzelsolutions_ndm_front:last
+    container_name: ndm-front
+    networks:
+      - ndm
+    ports:
+      - 4200:8080
+
+networks:
+  ndm:
+    name: ndm-network

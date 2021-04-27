@@ -1,17 +1,25 @@
 name: Node Continuoues Intergration
-
 on:
-  pull_request:
-   branches:[master]
+  push:
+    branches: test
 
 jobs:
-  test_pull_request:
-  runs-on: ubuntu-latest
-  steps:
-    - uses: actions/checkout@v2
-    - uses: actions/setup-node@v1
-     width: node-version: 12
-    - run: npm ci
-    - run: npm test
-    - run: npm run build
+  cypress:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Docker Pull Back
+        run: docker pull szymonnethermind/demerzelsolutions_ndm_con:last
+      - name: Docker Pull Front
+        run: docker pull szymonnethermind/demerzelsolutions_ndm_front:last
+      - name: Run App
+        run: |
+          docker-compose up &
+          npx cypress run  --spec cypress/integration/myTests/**/*
+      # - name: Cypress
 
+# idk
+#asdasd
+#test
+#test
+#test
